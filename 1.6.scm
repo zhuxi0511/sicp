@@ -1,0 +1,22 @@
+(define (sqrt-iter guess x)
+  (new_if (good-enough? guess x)
+    guess
+    (sqrt-iter (improve guess x) x)
+    )
+  )
+(define (improve guess x)
+  (/ (+ (/ x guess) guess) 2)
+  ) 
+(define (good-enough? guess x)
+  ( < (abs 
+        (- (square guess) x))
+      0.001)
+  )
+(define (new_if predicate then_ else_)
+  (cond (predicate then_)
+        (else else_)
+        )
+  )
+
+(sqrt-iter 1.0 20)
+(sqrt-iter 1.0 3)

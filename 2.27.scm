@@ -1,0 +1,10 @@
+(define (deep-reverse lst)
+    (iter lst '()))
+(define (iter remained-items result)
+    (cond ((null? remained-items) result)
+          ((not (pair? remained-items)) remained-items)
+          (else (iter (cdr remained-items)
+                      (cons (iter (car remained-items) '()) result)))))
+
+(deep-reverse (list 1 2 3))
+(deep-reverse (list (list 1 2) (list 3 4)))

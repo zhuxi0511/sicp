@@ -1,0 +1,15 @@
+(define (pascal_triangle row col)
+  (cond ((and (= 1 row) (= 1 col)) 1)
+        ((= 1 col) (pascal_triangle (- row 1) col))
+        ((= row col) (pascal_triangle (- row 1) (- col 1)))
+        ((< col row) (+ 
+                       (pascal_triangle (- row 1) (- col 1))
+                       (pascal_triangle (- row 1) col)
+                       ))
+        (else -10000)
+        )
+  )
+
+(pascal_triangle 4 4)
+(pascal_triangle 5 4)
+(pascal_triangle 5 3)
