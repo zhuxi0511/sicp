@@ -1,0 +1,15 @@
+(define (make-accumulater inif)
+  (lambda (plus-number) 
+    (set! inif (+ inif plus-number))
+    inif
+    )
+  )
+
+(define x (make-accumulater 10))
+(define y (make-accumulater 10))
+(x 1)
+(x 1)
+(y 1)
+(x 1)
+(y 1)
+(y 1)
